@@ -75,8 +75,8 @@ class _FormWidget extends StatefulWidget {
 }
 
 class __FormWidgetState extends State<_FormWidget> {
-  final _loginTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
+  final _loginTextController = TextEditingController(text: 'admin');
+  final _passwordTextController = TextEditingController(text: 'admin');
   String? errorText = null;
 
   void _auth() {
@@ -86,12 +86,8 @@ class __FormWidgetState extends State<_FormWidget> {
     if (login == 'admin' && password == 'admin') {
       errorText = null;
 
-      final navigator = Navigator.of(context);
-      navigator.push(
-        MaterialPageRoute<void>(
-          builder: (context) => MianScreenWidget(),
-        ),
-      );
+      Navigator.of(context).pushReplacementNamed('/main_screen');
+      // Navigator.of(context).pushReplacementNamed('/main_screen');
     } else {
       errorText = 'Неверный пароль или логин';
       // print('show error');

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import '../movie_list/movie_list_widget.dart';
 
 class MianScreenWidget extends StatefulWidget {
   const MianScreenWidget({Key? key}) : super(key: key);
@@ -15,9 +16,7 @@ class _MianScreenWidgetState extends State<MianScreenWidget> {
     Text(
       'Новости',
     ),
-    Text(
-      'Фильмы',
-    ),
+    MovieListWidget(),
     Text(
       'Сериалы',
     ),
