@@ -1,18 +1,101 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-
 import '../../resources/resources.dart';
 
+class Movie {
+  final String imageName;
+  final String title;
+  final String time;
+  final String description;
+
+  Movie({
+    required this.imageName,
+    required this.title,
+    required this.time,
+    required this.description,
+  });
+}
+
 class MovieListWidget extends StatelessWidget {
-  const MovieListWidget({Key? key}) : super(key: key);
+  final _movies = [
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: 'Человек-паук: Нет пути домой',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '123',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '234',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '345',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '456',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '567',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '678',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '789',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '890',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '234',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+    Movie(
+        imageName: AppImages.moviePlaceholder,
+        title: '345',
+        time: '15 декабря 2021',
+        description:
+            'Мистерио удаётся выяснить истинную личность Человека-паука.'),
+  ];
+
+  MovieListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 10,
+        itemCount: _movies.length,
         itemExtent: 163,
         itemBuilder: (BuildContext context, int index) {
+          final movie = _movies[index];
           return Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
@@ -42,7 +125,7 @@ class MovieListWidget extends StatelessWidget {
                     children: [
                       // ignore: prefer_const_constructors
                       Image(
-                        image: AssetImage(AppImages.moviePlaceholder),
+                        image: AssetImage(movie.imageName),
                       ),
                       SizedBox(
                         width: 15,
@@ -56,7 +139,7 @@ class MovieListWidget extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              'Spider-Man: No Way Home',
+                              movie.title,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -67,7 +150,7 @@ class MovieListWidget extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              '15 декабря 2021',
+                              movie.time,
                               style: TextStyle(color: Colors.grey),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -76,7 +159,7 @@ class MovieListWidget extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              'Мистерио удаётся выяснить истинную личность Человека-паука. С этого момента жизнь Питера Паркера становится невыносимой. Если ранее он мог успешно переключаться между своими амплуа, то сейчас это сделать невозможно. Переворачивается с ног на голову не только жизнь Человека-пауку, но и репутация. Понимая, что так жить невозможно, главный герой фильма «Человек-паук: Нет пути домой» принимает решение обратиться за помощью к своему давнему знакомому Стивену Стрэнджу. Питер Паркер надеется, что с помощью магии он сможет восстановить его анонимность. Стрэндж соглашается помочь.',
+                              movie.description,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             )

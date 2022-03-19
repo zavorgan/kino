@@ -12,7 +12,7 @@ class MianScreenWidget extends StatefulWidget {
 
 class _MianScreenWidgetState extends State<MianScreenWidget> {
   int _selectedTab = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     Text(
       'Новости',
     ),
