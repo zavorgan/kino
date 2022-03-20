@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import '../../resources/resources.dart';
 
 class Movie {
+  final int id;
   final String imageName;
   final String title;
   final String time;
   final String description;
 
   Movie({
+    required this.id,
     required this.imageName,
     required this.title,
     required this.time,
@@ -21,72 +23,83 @@ class MovieListWidget extends StatefulWidget {
   MovieListWidget({Key? key}) : super(key: key);
 
   @override
-  State<MovieListWidget> createState() => _MovieListWidgetState();
+  _MovieListWidgetState createState() => _MovieListWidgetState();
 }
 
 class _MovieListWidgetState extends State<MovieListWidget> {
   final _movies = [
     Movie(
+        id: 1,
         imageName: AppImages.moviePlaceholder,
         title: 'Человек-паук: Нет пути домой',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 2,
         imageName: AppImages.moviePlaceholder,
         title: '123',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 3,
         imageName: AppImages.moviePlaceholder,
         title: '234',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 4,
         imageName: AppImages.moviePlaceholder,
         title: '345',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 5,
         imageName: AppImages.moviePlaceholder,
         title: '456',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 6,
         imageName: AppImages.moviePlaceholder,
         title: '567',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 7,
         imageName: AppImages.moviePlaceholder,
         title: '678',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 8,
         imageName: AppImages.moviePlaceholder,
         title: '789',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 9,
         imageName: AppImages.moviePlaceholder,
         title: '890',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 10,
         imageName: AppImages.moviePlaceholder,
         title: '234',
         time: '15 декабря 2021',
         description:
             'Мистерио удаётся выяснить истинную личность Человека-паука.'),
     Movie(
+        id: 11,
         imageName: AppImages.moviePlaceholder,
         title: '345',
         time: '15 декабря 2021',
@@ -117,6 +130,14 @@ class _MovieListWidgetState extends State<MovieListWidget> {
     _filteredMovies = _movies;
 
     _searchController.addListener(_searchMovies);
+  }
+
+  void _onMovieTap(int index) {
+    final id = _movies[index].id;
+    Navigator.of(context).pushNamed(
+      '/main_screen/movie_details',
+      arguments: id,
+    );
   }
 
   @override
@@ -210,9 +231,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                       color: Colors.transparent,
                       child: InkWell(
                         borderRadius: BorderRadius.circular(10),
-                        onTap: () {
-                          print('11');
-                        },
+                        onTap: () => _onMovieTap(index),
                       ),
                     )
                   ],
