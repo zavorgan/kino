@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:kino/Theme/app_colors.dart';
+import 'package:kino/widgets/auth/auth_model.dart';
 import 'package:kino/widgets/auth/auth_widget.dart';
 import 'package:kino/widgets/main_screen/main_screen_widget.dart';
 import 'package:kino/widgets/movie_details/movie_details_widget.dart';
@@ -28,14 +29,15 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/auth': (context) => AuthWidget(),
-        '/main_screen': (context) => MianScreenWidget(),
+        '/auth': (context) =>
+            AuthProvider(model: AuthModel(), child: const AuthWidget()),
+        '/main_screen': (context) => const MianScreenWidget(),
         '/main_screen/movie_details': (context) {
           final arguments = ModalRoute.of(context)!.settings.arguments;
           if (arguments is int) {
             return MovieDetailsWidget(movieId: arguments);
           } else {
-            return MovieDetailsWidget(movieId: 1);
+            return MovieDetailsWidget(movieId: 0);
           }
         },
       },
