@@ -33,6 +33,9 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
           height: 30,
         ),
         PeopleWidgets(),
+        SizedBox(
+          height: 20,
+        )
       ],
     );
   }

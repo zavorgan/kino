@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kino/widgets/movie_details/movie_details_main_info_widget.dart';
 
+import 'movie_details_main_screen_cast_widget.dart';
+
 class MovieDetailsWidget extends StatefulWidget {
   final int movieId;
   MovieDetailsWidget({
@@ -23,6 +25,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
         color: Color.fromRGBO(24, 23, 27, 1.0),
         child: ListView(children: [
           MovieDetailsMainInfoWidget(),
+          MovieDetailsMainScreenCastWidget(),
         ]),
       ),
     );
